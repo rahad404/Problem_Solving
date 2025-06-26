@@ -38,38 +38,41 @@ void printList(ListNode* head){
 ListNode* removeNodes(ListNode* head) {
     ListNode* prev = NULL;
     ListNode* curr = head;
-    ListNode* next = NULL;
+
     while (curr!=NULL){
-        next = curr->next;
+        ListNode* next = curr->next;
         curr->next = prev;
         prev = curr;
         curr = next;
     }
 
     ListNode* h1 = prev;
-    while(prev->next!=NULL){
-        if(prev->val <= prev->next->val){
-            prev=prev->next;
+    int maxVal = h1->val;
+    ListNode* temp = h1;
+    while(temp!=NULL && temp->next!=NULL){
+        if(temp->next->val < maxVal){
+            ListNode* del = temp->next;
+            temp->next = temp->next->next;
+            // delete del;  //cause problem in leetcode;
         }
         else{
-            ListNode* temp = prev->next;
-            prev->next = prev->next->next;
-            delete temp;
+            temp = temp->next;
+            maxVal = temp->val;
         }
     }
 
-    ListNode* prev2 = NULL;
-    ListNode* curr2 = h1;
-    ListNode* next2 = NULL;
-    while (curr2!=NULL){
-        next2 = curr2->next;
-        curr2->next = prev2;
-        prev2 = curr2;
-        curr2 = next2;
+    prev = NULL;
+    curr = h1;
+    while (curr!=NULL){
+        ListNode* next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
     }
 
-    return prev2;
+    return prev;
 }
+
 
 int main(){
     ListNode* list1 = NULL;
