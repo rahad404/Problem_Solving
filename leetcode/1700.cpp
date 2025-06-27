@@ -35,5 +35,9 @@ int countStudents(vector<int>& students, vector<int>& sandwiches){
 
 
 int main(){
+    vector<int> student = {1,1,1,0,0,1};
+    vector<int> sandwich = {1,0,0,0,1,1};
+    
+    cout<<countStudents(student,sandwich);
 
 }
