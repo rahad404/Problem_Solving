@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+ 
 int main(){
     int n;
     cin>>n;
@@ -8,7 +8,7 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-
+ 
     int eCount=0,oCount=0,eIndex=0,oIndex=0;
     for(int i=0;i<n;i++){
         if(arr[i]%2==0){
@@ -20,7 +20,7 @@ int main(){
             oIndex=i;
         }
     }
-
+ 
     if(eCount==1){
         cout<<eIndex+1;
     }

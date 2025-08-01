@@ -1,27 +1,18 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> map;
 
-#include <iostream>
-#include <set>
-#include <vector>
-#include <unordered_map>
-using namespace std;
+        for(auto value : arr){
+            map[value]++;
+        }
 
-bool uniqueOccurrences(vector<int>& arr){
-    unordered_map<int, int> map;
+        set<int> uniq;
+        for(auto pair : map){
+            uniq.insert(pair.second);
+        }
 
-    for(auto value : arr){
-        map[value]++;
+        if(uniq.size()!=map.size())return false;
+        return true;
     }
-
-    set<int> uniq;
-    for(auto pair : map){
-        uniq.insert(pair.second);
-    }
-
-    if(uniq.size()!=map.size())return false;
-    return true;
-}
-
-int main(){
-    vector<int> v = {1,1,2,2,3,3,3,4,4,4,4};
-    cout<<uniqueOccurrences(v);
-}
+};
