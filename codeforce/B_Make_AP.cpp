@@ -7,18 +7,11 @@ int main(){
         int a, b, c;
         cin >>a >>b >>c;
 
-        if(a==b && b==c)cout<<"YES"<<endl;
-        else if(abs(a-b)==abs(b-c))cout<<"YES"<<endl;
-        else{
-            int n_a = b-(c-b);
-            if(n_a>a && n_a%a==0 && a!=0) cout<<"YES"<<endl;
-            int n_b = ;
-            if(n_a>a && n_a%a==0 && a!=0) cout<<"YES"<<endl;
-            int n_a = b-(c-b);
-            if(n_a>a && n_a%a==0 && a!=0) cout<<"YES"<<endl;
-        }
+        if((2*b-c)>0 && (2*b-c)%a==0) cout<<"YES" <<endl;
+        else if((2*b-a)>0 && (2*b-a)%c==0) cout<<"YES" <<endl;
+        else if((c+a)%(2*b)==0) cout<<"YES" <<endl;
+        else cout<<"NO" <<endl;
     }
-    
 
     return 0;
 }
